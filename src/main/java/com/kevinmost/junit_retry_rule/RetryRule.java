@@ -25,10 +25,10 @@ public final class RetryRule implements TestRule {
           "@" + Retry.class.getSimpleName() + " cannot be used with a \"times\" parameter less than 1"
       );
     }
-    final long timeout = retryAnnotation.timeout();
-    if (timeout < 0) {
+    final long delay = retryAnnotation.delay();
+    if (delay < 0) {
       throw new IllegalArgumentException(
-          "@" + Retry.class.getSimpleName() + " cannot be used with a \"timeout\" parameter less than 0"
+          "@" + Retry.class.getSimpleName() + " cannot be used with a \"delay\" parameter less than 0"
       );
     }
 
@@ -43,7 +43,7 @@ public final class RetryRule implements TestRule {
           } catch (Throwable t) {
             errors[currentAttempt] = t;
             currentAttempt++;
-            Thread.sleep(timeout);
+            Thread.sleep(delay);
           }
         }
         throw RetryException.from(errors);

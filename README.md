@@ -23,7 +23,7 @@ an instance of it as a public field, annotated with `@Rule`.
 
 Then, for any test that needs to implement retrying logic, annotate
 the method with `@Retry`. Optional parameters on this annotation let
-you change defaults such as the number of retries, the timeout length,
+you change defaults such as the number of retries, the delay length,
 etc.
 
 ```java

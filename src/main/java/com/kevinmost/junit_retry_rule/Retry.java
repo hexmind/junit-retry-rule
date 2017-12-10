@@ -21,5 +21,5 @@ public @interface Retry {
   /**
    * @return how long to sleep between invocations of the unit tests, in milliseconds
    */
-  long timeout() default 0;
+  long delay() default 0;
 }
